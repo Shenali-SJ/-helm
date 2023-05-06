@@ -9,17 +9,17 @@ spec:
   - host: '{{.Values.hostName}}'
     http:
       paths:
-      - path: /{{.Values.microservices.service1.serviceName}}(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: '{{.Values.microservices.service1.serviceName}}'
-            port:
-              name: http
       - path: /{{.Values.microservices.service2.serviceName}}(/|$)(.*)
         pathType: Prefix
         backend:
           service:
             name: '{{.Values.microservices.service2.serviceName}}'
+            port:
+              name: http
+      - path: /{{.Values.microservices.service1.serviceName}}(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: '{{.Values.microservices.service1.serviceName}}'
             port:
               name: http
